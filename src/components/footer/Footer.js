@@ -7,6 +7,7 @@ import {
   faFacebook,
   faTwitter,
   faInstagram,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
@@ -33,8 +34,8 @@ const Footer = () => {
         <FontAwesomeIcon icon={faYoutube} size="2x" />
       </a>
       <a
-        href="https://www.facebook.com/learnbuildteach/"
-        className="facebook social"
+        href="https://www.github.com/minaxijoshi3101/"
+        className="github social"
       >
         <FontAwesomeIcon icon={faFacebook} size="2x" />
       </a>

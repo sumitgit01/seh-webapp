@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import ButtonComp from "./ButtonComp";
 import Person4Icon from "@mui/icons-material/Person4";
 import { lightGreen } from "@mui/material/colors";
 
