@@ -35,7 +35,7 @@ const Footer = () => {
       >
         <FontAwesomeIcon icon={faGithub} size="2x" />
       </a>
-      <a href="https://www.twitter.com/jamesqquick" className="twitter social">
+      <a href="https://www.twitter.com/" className="twitter social">
         <FontAwesomeIcon icon={faTwitter} size="2x" />
       </a>
       <a
