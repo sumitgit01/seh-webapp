@@ -1,0 +1,32 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import BannerImage from "../assets/images/seh.jpg";
+import "../styles/AboutUs.css";
+import "../styles/Home.css";
+import ButtonComp from "../components/ButtonComp";
+
+const Home = () => {
+  return (
+    <div class="row">
+      <div class="column">
+        <img
+          width="80%"
+          height="80%"
+          src={require("../assets/images/seh.jpg")}
+          className="image"
+        />
+      </div>
+      <div class="column">
+        <div>
+          <h1>SuccessEduHub classes</h1>
+          <p>Classes to make your career bright.</p>
+          <Link to="/signup">
+            <ButtonComp type="submit" label="Enroll Now" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
