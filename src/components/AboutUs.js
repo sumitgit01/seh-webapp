@@ -83,12 +83,12 @@ const AboutUs = () => {
         Our track record of success is a testament to our effective teaching
         methods and dedication to student growth. Individualized Attention: We
         understand that every student is unique, and we tailor our teaching to
-        cater to individual needs. State-of-the-Art Facilities: [Your Coaching
-        Center's Name] boasts modern classrooms and resources to facilitate an
-        optimal learning experience. Supportive Community: Join a supportive
-        community of like-minded students and educators who are passionate about
-        learning and growth. Join Us: Join SuccessEduHub today and embark on a
-        journey towards academic excellence and a brighter future. Contact us to
+        cater to individual needs. State-of-the-Art Facilities: SuccessEduHub
+        boasts modern classrooms and resources to facilitate an optimal learning
+        experience. Supportive Community: Join a supportive community of
+        like-minded students and educators who are passionate about learning and
+        growth. Join Us: Join SuccessEduHub today and embark on a journey
+        towards academic excellence and a brighter future. Contact us to
         schedule a consultation or inquire about our courses. Conclusion: At
         SuccessEduHub, we are more than just an educational institution; we are
         your partners in success. We look forward to guiding you towards
