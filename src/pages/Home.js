@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import BannerImage from "../assets/images/seh.jpg";
 import "../styles/AboutUs.css";
 import "../styles/Home.css";
 import ButtonComp from "../components/ButtonComp";
@@ -10,6 +9,7 @@ const Home = () => {
     <div class="row">
       <div class="column">
         <img
+          alt="sehimg"
           width="80%"
           height="80%"
           src={require("../assets/images/seh.jpg")}

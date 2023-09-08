@@ -1,10 +1,8 @@
 import React from "react";
-import { SocialIcon } from "react-social-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../styles/Footer.css";
 import {
   faYoutube,
-  faFacebook,
   faTwitter,
   faInstagram,
   faGithub,
@@ -12,8 +10,6 @@ import {
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const Component = <SocialIcon url="https://twitter.com" />;
-  const title = "Lorem Ipsum";
   return (
     // <footer>
     //   <SocialIcon url="www.pinterest.com" className="youtube social">
@@ -37,7 +33,7 @@ const Footer = () => {
         href="https://www.github.com/minaxijoshi3101/"
         className="github social"
       >
-        <FontAwesomeIcon icon={faFacebook} size="2x" />
+        <FontAwesomeIcon icon={faGithub} size="2x" />
       </a>
       <a href="https://www.twitter.com/jamesqquick" className="twitter social">
         <FontAwesomeIcon icon={faTwitter} size="2x" />

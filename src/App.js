@@ -1,6 +1,4 @@
 import "./App.css";
-
-import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import AboutUs from "./components/AboutUs";
