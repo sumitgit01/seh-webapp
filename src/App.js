@@ -5,6 +5,7 @@ import AboutUs from "./components/AboutUs";
 import Home from "./pages/Home";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Enrollnow from "./components/Enrollnow";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/enroll" element={<Enrollnow />} />
         </Routes>
       </Router>
       <Footer />

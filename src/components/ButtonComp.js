@@ -2,21 +2,21 @@ import React from "react";
 import SendIcon from "@mui/icons-material/Send";
 import { Button } from "@mui/material";
 import { lightGreen } from "@mui/material/colors";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ButtonComp(props) {
+  const navigate = useNavigate();
   return (
-    <>
+    <div>
       <Button
-        component={Link}
         variant="contained"
         style={{ backgroundColor: lightGreen[500] }}
         endIcon={<SendIcon />}
-        to="/enrollnow"
+        onClick={() => navigate("/enroll")}
       >
         {props.label}
       </Button>
-    </>
+    </div>
   );
 }
 
