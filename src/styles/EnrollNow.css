@@ -16,12 +16,11 @@
 }
 
 .error {
-  display: block;
-  background-color: red;
-  color: white;
+  display: contents;
+  color: #ed0b0b;
   width: fit-content;
-  height: 50px;
-  padding: 5px;
+  height: 10px;
+  font-size: 5px;
 }
 
 .success {

@@ -55,7 +55,7 @@ const Enrollnow = () => {
           display: submitted ? "" : "none",
         }}
       >
-        <h1>User {name} successfully registered!!</h1>
+        <h4>User {name} successfully registered!!</h4>
       </div>
     );
   };
@@ -68,7 +68,7 @@ const Enrollnow = () => {
           display: error ? "" : "none",
         }}
       >
-        <h1>Please enter all the fields</h1>
+        <h4>Please enter all the fields</h4>
       </div>
     );
   };
