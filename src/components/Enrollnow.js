@@ -4,7 +4,7 @@ import "../styles/EnrollNow.css";
 import user_icon from "../assets/images/EnrollNow/person.png";
 import email_icon from "../assets/images/EnrollNow/email.png";
 import password_icon from "../assets/images/EnrollNow/password.png";
-import mobile_icon from "../assets/images/EnrollNow/person.png";
+import mobile_icon from "../assets/images/EnrollNow/mobile.png";
 
 const Enrollnow = () => {
   // States for registration
