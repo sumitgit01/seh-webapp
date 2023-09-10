@@ -1,12 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/EnrollNow.css";
+import user_icon from "../assets/images/EnrollNow/person.png";
+import email_icon from "../assets/images/EnrollNow/email.png";
+import password_icon from "../assets/images/EnrollNow/password.png";
+import mobile_icon from "../assets/images/EnrollNow/person.png";
 
 const Enrollnow = () => {
   // States for registration
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [mobile, setMobile] = useState("");
+
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -23,6 +29,10 @@ const Enrollnow = () => {
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    setSubmitted(false);
+  };
+  const handleMobile = (e) => {
+    setMobile(e.target.value);
     setSubmitted(false);
   };
 
@@ -63,8 +73,8 @@ const Enrollnow = () => {
     );
   };
   return (
-    <div className="enroll">
-      <h1> Enroll me </h1>
+    <div className="header">
+      <div className="text">Enroll me</div>
       <h4>
         Contact me below to find out more about how you can benefit me from
         coaching.
@@ -83,49 +93,55 @@ const Enrollnow = () => {
 
       <form>
         {/* Labels and inputs for form data */}
-        <div
-          className="mb-4 align-middle"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <label className="label">Name</label>
-          <input
-            onChange={handleName}
-            className="input"
-            value={name}
-            type="text"
-          />
-        </div>
-        <div
-          className="mb-4 align-middle"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <label className="label">Email</label>
-          <input
-            onChange={handleEmail}
-            className="input"
-            value={email}
-            type="email"
-          />
-        </div>
-        <div
-          className="mb-4 align-middle"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <label className="label">Password</label>
-          <input
-            onChange={handlePassword}
-            className="input"
-            value={password}
-            type="password"
-          />
-        </div>
-        <div
-          className="mb-4 align-middle"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <button onClick={handleSubmit} className="btn" type="submit">
-            Submit
-          </button>
+        <div className="container">
+          <div className="underline">
+            <div className="inputs">
+              <div className="input">
+                <img src={user_icon} alt="" />
+                <input
+                  onChange={handleName}
+                  value={name}
+                  type="text"
+                  placeholder="Name"
+                />
+              </div>
+              <div className="input">
+                <img src={email_icon} alt="" />
+                <input
+                  onChange={handleEmail}
+                  value={email}
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div className="input">
+                <img src={password_icon} alt="" />
+                <input
+                  onChange={handlePassword}
+                  value={password}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="input">
+                <img src={mobile_icon} alt="" />
+                <input
+                  onChange={handleMobile}
+                  value={mobile}
+                  type="text"
+                  placeholder="Mobile"
+                />
+              </div>
+              <div className="forgot-password">
+                Lost Password? <span>Click here</span>
+              </div>
+              <div className="submit-container">
+                <div className="submit" onClick={handleSubmit}>
+                  Submit
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     </div>
