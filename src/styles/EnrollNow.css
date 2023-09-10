@@ -1,0 +1,40 @@
+.EnrollNow {
+  text-align: center;
+  background-color: green;
+}
+
+.label {
+  display: block;
+  font-size: larger;
+  color: rgb(50, 47, 47);
+  padding: 5px;
+}
+
+.input {
+  font-size: larger;
+  padding-left: 5px;
+  margin: 2px;
+}
+
+.messages {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  display: block;
+  background-color: red;
+  color: white;
+  width: fit-content;
+  height: 50px;
+  padding: 5px;
+}
+
+.success {
+  display: block;
+  background-color: lightblue;
+  color: black;
+  width: fit-content;
+  height: 50px;
+  padding: 5px;
+}
