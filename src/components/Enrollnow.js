@@ -132,9 +132,9 @@ const Enrollnow = () => {
                   placeholder="Mobile"
                 />
               </div>
-              <div className="forgot-password">
+              {/* <div className="forgot-password">
                 Lost Password? <span>Click here</span>
-              </div>
+              </div> */}
               <div className="submit-container">
                 <div className="submit" onClick={handleSubmit}>
                   Submit
