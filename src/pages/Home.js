@@ -14,15 +14,14 @@ const Home = () => {
           height="80%"
           src={require("../assets/images/seh.jpg")}
           className="image"
+          style={{ marginLeft: "20px" }}
         />
       </div>
-      <div class="column">
+      <div style={{ marginTop: "40px" }} class="column">
         <div>
           <h1>SuccessEduHub classes</h1>
           <p>Classes to make your career bright.</p>
-          <Link to="/signup">
-            <ButtonComp type="submit" label="Enroll Now" />
-          </Link>
+          <ButtonComp type="submit" label="Enroll Now" />
         </div>
       </div>
     </div>

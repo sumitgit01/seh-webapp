@@ -44,6 +44,7 @@ const Footer = () => {
       >
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
+      <h5>{`Contact Us: queries@seh.com`}</h5>
       <p> {`Copyright © SuccessEduHub Code ${year}`}</p>
     </div>
   );
