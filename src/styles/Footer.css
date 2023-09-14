@@ -1,11 +1,3 @@
-.social-container {
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 a.social {
   margin: 0 1rem;
   transition: transform 250ms;
@@ -14,14 +6,17 @@ a.social {
 
 a.social:hover {
   transform: translateY(-2px);
+  display: inline-block;
 }
 
 a.youtube {
   color: #eb3223;
+  display: inline-block;
 }
 
 a.facebook {
   color: #4968ad;
+  display: inline-block;
 }
 
 a.twitter {
@@ -33,8 +28,12 @@ a.instagram {
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  margin: auto;
+  width: 100%;
+  position: "absolute";
+  vertical-align: auto;
+  display: inline-block;
 }
