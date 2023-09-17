@@ -112,7 +112,8 @@ const Enrollnow = () => {
   //   setMobile(e.target.value);
   // };
 
-  // Handling the form submission
+  // Handling the form submission - sync - no other operation - blocking
+  //async - parallel - wont block -
   const handleSubmit = async (e) => {
     console.log("inside handle submit");
     e.preventDefault();
@@ -122,19 +123,42 @@ const Enrollnow = () => {
       setErrMsg("Invalid Entry");
       return;
     }
-    const result = await fetch(
-      "http://localhost:8080/api/v1/student/register",
-      {
+    try {
+      await fetch("http://localhost:8080/api/v1/student/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(studentData),
-      }
-    );
-    setSuccess(true);
+        body: JSON.stringify({
+          student_name: studentData.name,
+          student_password: studentData.password,
+          student_mobile: studentData.mobile,
+          student_email: studentData.email,
+        }),
+      });
+      setSuccess(true);
+      // result
+      //   .then((data) => {
+      //     setSuccess(true);
+      //   })
+      //   .catch((error) => console.log(error));
+    } catch (error) {
+      console.log("User registration failed....");
+    }
+
+    // const result = await fetch(
+    //   "http://localhost:8080/api/v1/student/register",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(studentData),
+    //   }
+    // );
+
     //const resultJSON = await result.JSON();
-    console.log(result);
+    //console.log(result);
     //const objectArray = Object.fromEntries(studentData);
 
     // signUp(studentData)
@@ -176,7 +200,7 @@ const Enrollnow = () => {
     <>
       {success ? (
         <section>
-          <h4>User {userRef} successfully registered!!</h4>
+          <h4>User successfully registered!!</h4>
           <p>
             <a href="www.google.com">Sign In</a>
           </p>
