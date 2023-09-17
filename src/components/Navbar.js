@@ -17,7 +17,7 @@ const Navbar = (props) => {
               alt="Logo"
               width="30"
               height="30"
-              class="d-inline-block align-text-top"
+              className="d-inline-block align-text-top"
             />
             {props.title}
           </a>

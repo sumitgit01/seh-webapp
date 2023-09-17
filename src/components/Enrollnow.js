@@ -7,34 +7,40 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+//import axios from "axios";
 import "../styles/EnrollNow.css";
 import user_icon from "../assets/images/EnrollNow/person.png";
 import email_icon from "../assets/images/EnrollNow/email.png";
 import password_icon from "../assets/images/EnrollNow/password.png";
 import mobile_icon from "../assets/images/EnrollNow/mobile.png";
-import axios from "../api/axios";
+//import { signUp } from "../services/enroll-student";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const MOBILE_REGEX =
   /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/gim;
-const REGISTER_URL = "/register";
+//const REGISTER_URL = "/register";
 
 const Enrollnow = () => {
   const userRef = useRef();
   const errRef = useRef();
 
-  const [student_name, setName] = useState("");
+  const [studentData, setData] = useState({
+    name: "",
+    password: "",
+    mobile: "",
+    email: "",
+  });
+  //const [name, setName] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
-  const [student_email, setEmail] = useState("");
+  //const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
-  const [student_password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
 
@@ -42,7 +48,7 @@ const Enrollnow = () => {
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  const [student_mobile, setMobile] = useState("");
+  // const [mobile, setMobile] = useState("");
   const [validMobile, setValidMobile] = useState(false);
   const [mobileFocus, setMobileFocus] = useState(false);
 
@@ -50,95 +56,121 @@ const Enrollnow = () => {
   const [success, setSuccess] = useState(false);
   // const [submitted, setSubmitted] = useState(false);
 
+  // const newStudent = {
+  //   student_name,
+  //   student_password,
+  //   student_mobile,
+  //   student_email,
+  // };
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
   useEffect(() => {
-    setValidName(USER_REGEX.test(student_name));
-  }, [student_name]);
+    setValidName(USER_REGEX.test(studentData.name));
+  }, [studentData.name]);
 
   useEffect(() => {
-    setValidEmail(EMAIL_REGEX.test(student_email));
-  }, [student_email]);
+    setValidEmail(EMAIL_REGEX.test(studentData.email));
+  }, [studentData.email]);
 
   useEffect(() => {
-    setValidPwd(PWD_REGEX.test(student_password));
-    setValidMatch(student_password === matchPwd);
-  }, [student_password, matchPwd]);
+    setValidPwd(PWD_REGEX.test(studentData.password));
+    setValidMatch(studentData.password === matchPwd);
+  }, [studentData.password, matchPwd]);
 
   useEffect(() => {
-    setValidMobile(MOBILE_REGEX.test(student_mobile));
-  }, [student_mobile]);
+    setValidMobile(MOBILE_REGEX.test(studentData.mobile));
+  }, [studentData.mobile]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [student_name, student_password, matchPwd]);
+  }, [studentData.name, studentData.password, matchPwd]);
 
+  //handle change dynamically
+  const handleChange = (event, property) => {
+    setData({ ...studentData, [property]: event.target.value });
+  };
   // Handling the student_name change
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-  // Handling the student_email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  // const handleName = (e) => {
+  //   setName(e.target.value);
+  // };
+  // // Handling the student_email change
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value);
+  // };
+  // // Handling the password change
+  // const handlePassword = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
   const handleMatchPassword = (e) => {
     setMatchPwd(e.target.value);
   };
-  const handleMobile = (e) => {
-    setMobile(e.target.value);
-  };
+  // const handleMobile = (e) => {
+  //   setMobile(e.target.value);
+  // };
 
   // Handling the form submission
   const handleSubmit = async (e) => {
+    console.log("inside handle submit");
     e.preventDefault();
-    const v1 = USER_REGEX.test(student_name);
-    const v2 = PWD_REGEX.test(student_password);
+    const v1 = USER_REGEX.test(studentData.name);
+    const v2 = PWD_REGEX.test(studentData.password);
     if (!v1 || !v2) {
       setErrMsg("Invalid Entry");
       return;
     }
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({
-          student_name,
-          student_password,
-          student_mobile,
-          student_email,
-        }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(response?.data);
-      console.log(response?.accessToken);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
-      setName("");
-      setPassword("");
-      setMatchPwd("");
-      setEmail("");
-      setMobile("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed");
+    const result = await fetch(
+      "http://localhost:8080/api/v1/student/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(studentData),
       }
-      errRef.current.focus();
-    }
+    );
+    setSuccess(true);
+    //const resultJSON = await result.JSON();
+    console.log(result);
+    //const objectArray = Object.fromEntries(studentData);
+
+    // signUp(studentData)
+    //.then((response) => {
+    //   //     console.log(response);
+    //   //     console.log("success!!");
+    //   //     setSuccess(true);
+    //   //   })
+    //   //   .catch((err) => {
+    //   //     console.log(err);
+    //   //   });
+    // try {
+    //   console.log("inside try");
+    //   //const array = Object.entries(studentData);
+    //   console.log(typeof studentData.name);
+    //   //console.log(Object.fromEntries(array));
+    //   const studentArr = Object.entries(studentData);
+    //   console.log(studentArr);
+    //   console.log(studentArr["name"]);
+    //   axios.post(
+    //     "http://localhost:8080/api/v1/student/register",
+    //     {
+    //       student_name: studentArr["name"],
+    //       student_password: studentArr["password"],
+    //       student_mobile: studentArr["mobile"],
+    //       student_email: studentArr["email"],
+    //     }
+    //     // student_name: studentData.student_name,
+    //     // student_password: studentData.student_password,
+    //     // student_mobile: studentData.student_mobile,
+    //     // student_email: studentData.student_email,
+    //   );
+    //   setSuccess(true);
+    // } catch (error) {
+    //   console.log("User registration failed....");
+    // }
   };
   return (
     <>
@@ -164,11 +196,7 @@ const Enrollnow = () => {
             >
               {errMsg}
             </p>
-            <form
-              name="enrollStudent"
-              id="enrollmentForm"
-              onSubmit={handleSubmit}
-            >
+            <form name="enrollStudent" id="enrollmentForm">
               {/* Labels and inputs for form data */}
               <div className="container">
                 <div className="underline">
@@ -182,15 +210,15 @@ const Enrollnow = () => {
                       <FontAwesomeIcon
                         icon={faTimes}
                         className={
-                          validName || !student_name ? "hide" : "invalid"
+                          validName || !studentData.name ? "hide" : "invalid"
                         }
                       />
                       <input
                         id="username"
                         ref={userRef}
                         autoComplete="off"
-                        onChange={handleName}
-                        value={student_name}
+                        onChange={(e) => handleChange(e, "name")}
+                        value={studentData.name}
                         type="text"
                         placeholder="Name"
                         name="student_name"
@@ -203,7 +231,7 @@ const Enrollnow = () => {
                       <p
                         id="uidnote"
                         className={
-                          userFocus && student_name && !validName
+                          userFocus && studentData.name && !validName
                             ? "instructions"
                             : "offscreen"
                         }
@@ -225,12 +253,12 @@ const Enrollnow = () => {
                       <FontAwesomeIcon
                         icon={faTimes}
                         className={
-                          validEmail || !student_email ? "hide" : "invalid"
+                          validEmail || !studentData.email ? "hide" : "invalid"
                         }
                       />
                       <input
-                        onChange={handleEmail}
-                        value={student_email}
+                        onChange={(e) => handleChange(e, "email")}
+                        value={studentData.email}
                         type="email"
                         placeholder="Email"
                         required
@@ -242,7 +270,7 @@ const Enrollnow = () => {
                       <p
                         id="uidnote"
                         className={
-                          emailFocus && student_email && !validEmail
+                          emailFocus && studentData.email && !validEmail
                             ? "instructions"
                             : "offscreen"
                         }
@@ -261,12 +289,12 @@ const Enrollnow = () => {
                       <FontAwesomeIcon
                         icon={faTimes}
                         className={
-                          validPwd || !student_password ? "hide" : "invalid"
+                          validPwd || !studentData.password ? "hide" : "invalid"
                         }
                       />
                       <input
-                        onChange={handlePassword}
-                        value={student_password}
+                        onChange={(e) => handleChange(e, "password")}
+                        value={studentData.password}
                         type="password"
                         id="student_password"
                         placeholder="Password"
@@ -337,12 +365,14 @@ const Enrollnow = () => {
                       <FontAwesomeIcon
                         icon={faTimes}
                         className={
-                          validMobile || !student_mobile ? "hide" : "invalid"
+                          validMobile || !studentData.mobile
+                            ? "hide"
+                            : "invalid"
                         }
                       />
                       <input
-                        onChange={handleMobile}
-                        value={student_mobile}
+                        onChange={(e) => handleChange(e, "mobile")}
+                        value={studentData.mobile}
                         type="text"
                         placeholder="Mobile"
                         required
@@ -354,7 +384,7 @@ const Enrollnow = () => {
                       <p
                         id="uidnote"
                         className={
-                          mobileFocus && student_mobile && !validMobile
+                          mobileFocus && studentData.mobile && !validMobile
                             ? "instructions"
                             : "offscreen"
                         }
@@ -366,12 +396,16 @@ const Enrollnow = () => {
                     {/* <div className="forgot-password">
                 Lost Password? <span>Click here</span>
               </div> */}
-                    <div className="submit-container">
-                      {/* <div className="submit" onClick={handleSubmit}> */}
-                      <div className="submit" onClick={handleSubmit}>
-                        Submit
-                      </div>
-                    </div>
+                    {/* <div className="submit-container"> */}
+                    {/* <div className="submit" onClick={handleSubmit}> */}
+                    <button
+                      type="submit"
+                      className="submit"
+                      onClick={handleSubmit}
+                    >
+                      Submit
+                    </button>
+                    {/* </div> */}
                   </div>
                 </div>
               </div>
