@@ -1,0 +1,15 @@
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
+
+.margin-left {
+  margin-left: 20px !important;
+}
+
+.span {
+  padding-right: 0.5rem;
+  cursor: pointer;
+}

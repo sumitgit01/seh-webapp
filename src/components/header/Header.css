@@ -1,0 +1,20 @@
+.blog-header {
+  background-color: #800080;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.blog-header h1 {
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-left: 30%;
+}

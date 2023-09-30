@@ -3,7 +3,7 @@ import "../styles/AboutUs.css"; // Import the CSS file
 const AboutUs = () => {
   return (
     <div className="about-us">
-      <h1>About Us</h1>
+      <h1>About SuccessEduHub</h1>
       <p>
         Welcome to SuccessEduHub, your partner on the path to success. We are a
         dedicated team of educators committed to empowering students like you to
@@ -44,30 +44,30 @@ const AboutUs = () => {
         alt="faculty2"
         width="100"
         height="100"
-        className="image"
+        className="image margin-left"
       />
       <img
         src={require("../assets/images/sumit.jpg")}
         alt="faculty3"
         width="100"
         height="100"
-        className="image"
+        className="image  margin-left"
       />
       <img
         src={require("../assets/images/vinita.jpg")}
         alt="faculty3"
         width="100"
         height="100"
-        className="image"
+        className="image  margin-left"
       />
       <img
         src={require("../assets/images/minaxi.jpg")}
         alt="faculty3"
         width="100"
         height="100"
-        className="image"
+        className="image  margin-left"
       />
-      <h3> Our Approach: </h3>
+      <h3 className=" margin"> Our Approach: </h3>
       <p>
         At SuccessEduHub, we believe in a holistic approach to education. We
         combine: Comprehensive Curriculum: Our carefully crafted curriculum

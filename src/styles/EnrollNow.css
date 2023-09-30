@@ -97,7 +97,7 @@ textarea {
 }
 
 .text {
-  color: #3c009d;
+  color: #009d32;
   font-size: 48px;
   font-weight: 700;
 }
@@ -142,7 +142,7 @@ textarea {
 }
 
 .forgot-password span {
-  color: #3c009d;
+  color: #6b9d00;
   cursor: pointer;
 }
 
@@ -160,7 +160,7 @@ textarea {
   width: 220px;
   height: 59px;
   color: #fff;
-  background: #4c00b4;
+  background: #009fb4;
   border-radius: 50px;
   font-size: 19px;
   font-weight: 700;

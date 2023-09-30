@@ -1,18 +1,24 @@
 /* src/components/AboutUs.css */
 
 .about-us {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .about-us h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .about-us p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.about-us h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.about-us h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.about-us p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
