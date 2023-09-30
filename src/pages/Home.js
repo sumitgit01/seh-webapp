@@ -19,7 +19,7 @@ const Home = () => {
       <div style={{ marginTop: "40px" }} class="column">
         <div>
           <h1>SuccessEduHub classes</h1>
-          <p>Classes to make your career bright.</p>
+          <p>A platform to make your career bright.</p>
           <ButtonComp type="submit" label="Enroll Now" />
         </div>
       </div>
