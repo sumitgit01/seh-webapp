@@ -11,6 +11,8 @@ RUN npm run build
 
 #Block 2 -  Deploy app in nginx
 FROM nginx:alpine
+#for dynamic app
+#COPY ./default.conf /etc/nginx/conf.d
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=build-stage /myapp/build .
