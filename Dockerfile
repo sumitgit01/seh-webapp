@@ -13,5 +13,5 @@ RUN npm run build
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build-stage /myapp/build .
+COPY --from=build-stage /seh-webapp/build .
 ENTRYPOINT ["nginx","-g","daemon off;"]
