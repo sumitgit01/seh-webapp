@@ -1,9 +1,10 @@
 #Block 1 - Build docker image for react app
 FROM node:21.7.1-slim as build-stage
 WORKDIR /seh-webapp
-COPY package.json .
-RUN npm install > npm-install.log 2>&1
-#RUN npm install
+RUN addgroup app && adduser -S -G app app && chown -R app /seh-webapp
+COPY package*.json ./
+#RUN NODE_ENV=development npm i > npm-install.log 2>&1
+RUN npm install
 COPY . .
 EXPOSE 8080
 USER root
