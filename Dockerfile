@@ -1,5 +1,5 @@
 #Block 1 - Build docker image for react app
-FROM node:21.7.1-slim as build-stage
+FROM node:16-alpine as build-stage
 WORKDIR /seh-webapp
 RUN addgroup app && adduser -S -G app app && chown -R app /seh-webapp
 COPY package*.json ./
