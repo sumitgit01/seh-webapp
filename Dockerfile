@@ -2,7 +2,8 @@
 FROM node:21.7.1-slim as build-stage
 WORKDIR /seh-webapp
 COPY package.json .
-RUN npm install
+#RUN npm install
+RUN npm install > npm-install.log 2>&1
 COPY . .
 EXPOSE 8080
 USER root
