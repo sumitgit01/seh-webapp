@@ -10,21 +10,24 @@
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
 
    ```bash
    https://github.com/minaxijoshi3101/seh-webapp.git
    
-2. Install dependencies:
-```bash
-cd seh-webapp
-npm install
+2. **Install dependencies**:
 
-3.
-```bash
-npm start
+   ```bash
+   cd seh-webapp
+   npm install
+
+3. **Start the server**:
+
+   ```bash
+   npm start
 
 ## Using Docker
+
 Dockerfile is available with source code.
 To start the application as a container - nginx web server is used
 1. create and image out of Dockerfile
@@ -36,4 +39,6 @@ Access using IP:80
 
 ## ****Technologies Used
 #Frontend: HTML, CSS, JavaScript, Bootstrap
-#Backend: Node.js, 
+#Backend: Node.js
+
+***To automate the deployment process - ``` https://github.com/minaxijoshi3101/devops_automation_mas.git repo``` has been created.
