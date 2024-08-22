@@ -16,7 +16,7 @@ const Home = () => {
           style={{ marginLeft: "20px" }}
         />
       </div>
-      <div style={{ marginTop: "40px" }} class="column">
+      <div style={{ marginTop: "50px" }} class="column">
         <div>
           <h1>SuccessEduHub classes</h1>
           <p>A platform to make your career bright.</p>

@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Enrollnow from "./components/Enrollnow";
 import Blogs from "./pages/Blogs";
+import Story from "./pages/Story";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/enroll" element={<Enrollnow />} />
           <Route exact path="/blogs" element={<Blogs />} />
+          <Route exact path="/my-story" element={<Story />} />
         </Routes>
       </Router>
       <Footer />
