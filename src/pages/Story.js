@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Story.css";
-import ButtonComp from "../components/ButtonComp";
 
 export default function Story() {
   return (
